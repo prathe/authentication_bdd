@@ -34,7 +34,7 @@ Then /^I shouldn't see a "([^"]*)" link$/ do |link_name|
 end
 
 Then /^I should see "([^"]*)"$/ do |text|
-  page.has_content?(text).should == true
+  page.has_content?(text).should be_true
 end
 
 # Scenario: Successful login
