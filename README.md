@@ -38,3 +38,11 @@ All of them should be green
 * features/user_log_in.feature
 * features/step_definitions/user_steps.rb
 * spec/factories.rb
+
+## Changelog
+### 0.1
+
+* Authlogic minimal MVC + migration installation
+* Feature: User login
+    * Scenario: A user reaches a login link
+    * Scenario: A user successfully login
