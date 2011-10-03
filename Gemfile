@@ -24,12 +24,12 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+
+  gem 'ruby-debug-base19', "0.11.24"
+  gem 'ruby-debug19', "0.11.6", :require => 'ruby-debug'
 
   gem 'database_cleaner'
   gem 'factory_girl_rails', "1.2.0"
@@ -40,7 +40,7 @@ end
 
 group :development do
   gem 'ruby-debug-base19', "0.11.24"
-  gem 'ruby-debug19', "0.11.6"
+  gem 'ruby-debug19', "0.11.6", :require => 'ruby-debug'
 end
 
 gem 'authlogic', '3.0.3'

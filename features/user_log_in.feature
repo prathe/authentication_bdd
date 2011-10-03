@@ -15,7 +15,6 @@ Feature: User log in
     And I fill in my email
     And I fill in my password
     When I click on "Log in"
-    Then I should be redirected to the "My Account" page
+    Then I should be redirected to the "Account" page
     And I should see "Hello Jane!"
     And I should see a "Log out" link
-    But I shouldn't see a "Log in" link

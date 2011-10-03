@@ -9,7 +9,6 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new params[:user_session]
     if @user_session.save
-      debugger
       redirect_to account_url
     else
       render :action => :new
@@ -17,7 +16,7 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
-    current_user_session.destroy
-    redirect_to new_user_session_path
+    UserSession.find.try(:destroy)
+    redirect_to login_url
   end
 end

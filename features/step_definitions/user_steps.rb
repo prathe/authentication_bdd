@@ -1,16 +1,19 @@
 Given /^I visit the "([^"]*)" page$/ do |page_name|
-  visit case page_name
-        when 'Home'
-          home_path
-        when 'Log in'
-          login_path
-        end
+  visit self.send "#{page_name.downcase.delete "/\s+/"}_path"
 end
 
 Given /^I am not logged in$/ do
-  activate_authlogic
-  session = UserSession.find
-  session.destroy if session
+  UserSession.find.try :destroy
+end
+
+Given /^I am logged in$/ do
+  UserSession.find.try :destroy
+  @user = FactoryGirl.build(:user)
+  @user.save_without_session_maintenance
+  visit login_path
+  fill_in 'Email', :with => @user.email
+  fill_in 'Password', :with => @user.password
+  click_on 'Log in'
 end
 
 When /^I click on "([^"]*)"$/ do |link_name|
@@ -18,10 +21,7 @@ When /^I click on "([^"]*)"$/ do |link_name|
 end
 
 Then /^I should be redirected to the "([^"]*)" page$/ do |page_name|
-  expected_path = case page_name
-                  when "My Account"
-                    account_path
-                  end
+  expected_path = self.send "#{page_name.downcase.delete "/\s+/"}_path"
   expected_path.should == current_path
 end
 
@@ -37,11 +37,15 @@ Then /^I should see "([^"]*)"$/ do |text|
   page.has_content?(text).should be_true
 end
 
+#Then /^I should see a "([^"]*)" header/ do |header_text|
+#  find('h1').should have_content(header_text)
+#end
+
 # Scenario: Successful login
 
 Given /^My name is "([^"]*)"$/ do |name|
-  activate_authlogic
-  @user = FactoryGirl.create(:user, :name => name)
+  @user = FactoryGirl.build(:user, :name => name)
+  @user.save_without_session_maintenance
 end
 
 Given /^I fill in my email$/ do

@@ -43,6 +43,12 @@ All of them should be green
 ### 0.1
 
 * Authlogic minimal MVC + migration installation
-* Feature: User login
-    * Scenario: A user reaches a login link
-    * Scenario: A user successfully login
+* Feature: User log in
+    * Scenario: I want to log in
+    * Scenario: I successfully log in
+
+### 0.2
+
+* DRY up a bit the test and use the first person when describing scenarios
+* Feature: User log out
+    * Scenario: I log out
