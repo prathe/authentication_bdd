@@ -1,0 +1,14 @@
+.DS_Store
+*.sw?
+*~
+/config/*.yml
+.bundle
+db/*.sqlite3*
+log/*.log
+*.log
+/tmp
+/doc
+.project
+.sass-cache/
+.rvmrc
+.rspec
