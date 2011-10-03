@@ -4,12 +4,13 @@ Feature: User log in
   So I can use all the features on the website
 
   Scenario: A user reaches a login link
-    Given I visit the "Home" page
-    And I am not logged in
+    Given I am not logged in
+    And I visit the "Home" page
     Then I should see a "Log in" link
 
-  Scenario: A user successfully login
+  Scenario: A user successfully log in
     Given My name is "Jane Russell"
+    And I am not logged in
     And I visit the "Log in" page
     And I fill in my email
     And I fill in my password
