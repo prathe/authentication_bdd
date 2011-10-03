@@ -3,12 +3,12 @@ Feature: User log in
   I want to log in
   So I can use all the features on the website
 
-  Scenario: A user reaches a login link
+  Scenario: I want to log in
     Given I am not logged in
     And I visit the "Home" page
     Then I should see a "Log in" link
 
-  Scenario: A user successfully log in
+  Scenario: I successfully log in
     Given My name is "Jane Russell"
     And I am not logged in
     And I visit the "Log in" page
