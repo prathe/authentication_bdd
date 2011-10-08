@@ -35,20 +35,26 @@ All of them should be green
 
 ## Some tests key files
 
-* features/user_log_in.feature
-* features/step_definitions/user_steps.rb
+* features/user_login.feature
+* features/support/user_login.rb
+* features/step_definitions/user_login_steps.rb
 * spec/factories.rb
 
 ## Changelog
-### 0.1
 
-* Authlogic minimal MVC + migration installation
-* Feature: User log in
-    * Scenario: I want to log in
-    * Scenario: I successfully log in
+### 0.3
+
+* Redefine existing features using acceptance test philosophy instead of integration test philosophy and by being more declarative in scenarios elaboration.
 
 ### 0.2
 
 * DRY up a bit the test and use the first person when describing scenarios
 * Feature: User log out
     * Scenario: I log out
+
+### 0.1
+
+* Authlogic minimal MVC + migration installation
+* Feature: User log in
+    * Scenario: I want to log in
+    * Scenario: I successfully log in
